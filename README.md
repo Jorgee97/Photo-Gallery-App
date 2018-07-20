@@ -7,8 +7,8 @@ will be fixed while keeping the development of the app.
 Actually the app, list albums, show what is inside the albums and show a picture with a grid below the main frame.
 
 # Future Feature
-- Delete a picture.
-- Share a picture.
+- Delete a picture. (done)
+- Share a picture. (done)
 - Take a picture inside the app.
 
 # Notes
