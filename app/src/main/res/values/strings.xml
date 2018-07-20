@@ -2,4 +2,7 @@
     <string name="app_name">Gallery MVP</string>
 
     <string name="items_count">%1$d items</string>
+    <string name="delete_image_dialog">do you want to delete this image?</string>
+    <string name="yes">Yes</string>
+    <string name="No">No</string>
 </resources>

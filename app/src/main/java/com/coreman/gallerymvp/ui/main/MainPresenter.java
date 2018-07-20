@@ -33,7 +33,6 @@ public class MainPresenter implements MainContract.Presenter {
         this.mContext = mContext;
     }
 
-
     @Override
     public void loadAlbums() {
         observeAlbums(mContext).subscribeWith(getObserver());
@@ -41,6 +40,7 @@ public class MainPresenter implements MainContract.Presenter {
 
     private Observable<List<PhotoAlbum>> observeAlbums(final Context context) {
         return Observable.fromCallable(() -> {
+            mPhotoAlbumList = new ArrayList<>();
             String[] PROJECTION_BUCKET = {MediaStore.Images.ImageColumns.BUCKET_ID,
                 MediaStore.Images.ImageColumns.BUCKET_DISPLAY_NAME,
                 MediaStore.Images.ImageColumns.DATE_TAKEN,
@@ -100,9 +100,6 @@ public class MainPresenter implements MainContract.Presenter {
         return new DisposableObserver<List<PhotoAlbum>>() {
             @Override
             public void onNext(List<PhotoAlbum> photoAlbums) {
-                for (PhotoAlbum item : photoAlbums) {
-                    Log.i(TAG, "onNext: " + item.getData());
-                }
                 mainView.showData(photoAlbums);
             }
 

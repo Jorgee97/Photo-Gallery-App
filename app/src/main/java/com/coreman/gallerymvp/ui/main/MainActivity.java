@@ -3,6 +3,7 @@ package com.coreman.gallerymvp.ui.main;
 import android.Manifest;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -52,11 +53,18 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
     }
 
     private void setupViews() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        //mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setHasFixedSize(true);
     }
 
     private void getAlbums() {
+        mPresenter.loadAlbums();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
         mPresenter.loadAlbums();
     }
 

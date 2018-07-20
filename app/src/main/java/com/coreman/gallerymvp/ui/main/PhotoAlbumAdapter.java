@@ -35,7 +35,7 @@ public class PhotoAlbumAdapter extends RecyclerView.Adapter<PhotoAlbumAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(mContext)
-                .inflate(R.layout.album_item, parent, false);
+                .inflate(R.layout.album_item_grid, parent, false);
 
         return new ViewHolder(view);
     }

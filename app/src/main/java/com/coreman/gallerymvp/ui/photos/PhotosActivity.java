@@ -1,5 +1,6 @@
 package com.coreman.gallerymvp.ui.photos;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,7 +10,9 @@ import android.widget.Toast;
 
 import com.coreman.gallerymvp.R;
 import com.coreman.gallerymvp.models.Photo;
+import com.coreman.gallerymvp.utils.Constants;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -46,6 +49,12 @@ public class PhotosActivity extends AppCompatActivity implements PhotosContract.
     private void setupViews() {
         mRecyclerPhotos.setLayoutManager(new GridLayoutManager(this, 3));
         mRecyclerPhotos.setHasFixedSize(true);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        mPresenter.loadImages(Long.parseLong(getIntent().getStringExtra("BUCKED_ID")));
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.coreman.gallerymvp.ui.photos;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -16,6 +17,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.coreman.gallerymvp.R;
 import com.coreman.gallerymvp.models.Photo;
 import com.coreman.gallerymvp.ui.viewer.ViewImageActivity;
+import com.coreman.gallerymvp.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +54,7 @@ public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.ViewHolder
 
         holder.mImageItem.setOnClickListener((View v) -> {
             Intent imageViewer = new Intent(mContext, ViewImageActivity.class);
-            imageViewer.putExtra("IMAGE_PATH", holder.mItem.getPhotoLocation().toString());
+            imageViewer.putExtra("IMAGE_PATH", holder.mItem);
             imageViewer.putParcelableArrayListExtra("IMAGE_ON_ALBUM", new ArrayList<>(mPhotoList));
             mContext.startActivity(imageViewer);
         });

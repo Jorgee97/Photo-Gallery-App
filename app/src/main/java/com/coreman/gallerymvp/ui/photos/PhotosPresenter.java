@@ -36,6 +36,7 @@ public class PhotosPresenter implements PhotosContract.Presenter {
 
     private Observable<List<Photo>> getPhotosOnAlbum(long bucketId) {
         return Observable.fromCallable(() -> {
+            mPhotos = new ArrayList<>();
             String[] projection = new String[] {
                     MediaStore.Images.Media._ID,
                     MediaStore.Images.Media.BUCKET_DISPLAY_NAME,
